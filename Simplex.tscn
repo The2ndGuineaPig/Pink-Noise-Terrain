@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyk5lec2o2mpy"]
+
+[ext_resource type="Script" path="res://Simplex.cs" id="1_hnudj"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_hnudj")
