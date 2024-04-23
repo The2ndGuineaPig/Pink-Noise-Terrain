@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://Simplex.cs" id="1_hnudj"]
 
-[node name="Node" type="Node"]
+[node name="Simplex" type="Node"]
 script = ExtResource("1_hnudj")
