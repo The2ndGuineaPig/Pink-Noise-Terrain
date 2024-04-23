@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvdq6dannupx3"]
+
+[ext_resource type="Script" path="res://Visualization/Visualization2D.cs" id="1_tywp2"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_2ekgp"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Visualization2D" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("CanvasTexture_2ekgp")
+script = ExtResource("1_tywp2")
