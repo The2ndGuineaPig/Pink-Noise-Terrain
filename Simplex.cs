@@ -2,9 +2,16 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-
 public partial class Simplex : Godot.Node
 {
+    public override void _Ready()
+	{
+        GD.Print("Simplex noise test");
+        double x = 1.234;
+        double y = 5.678;
+        double noiseValue = Simplex.noise(x, y);
+        GD.Print($"Simplex noise at ({x}, {y}): {noiseValue}");
+	}
 
     private static int[][] grad3= new int[][]
     {
@@ -17,20 +24,20 @@ public partial class Simplex : Godot.Node
 
     // To remove the need for index wrapping, double the permutation table length
     //private static int perm[] = new int[512];
-    static List<int> perm = new List<int>(512);
+    private static List<int> perm = new List<int>(512);
 
 
     //static { for(int i=0; i<512; i++) perm[i]=p[i & 255]; }
 
     private static int fastfloor(double x)
     {
-        return x > 0 ? (int)x : (int)x - 1;
         GD.Print("fastfloor nået");
+        return x > 0 ? (int)x : (int)x - 1;
     }
     private static double dot(int[] g, double x, double y)
     {
-        return g[0] * x + g[1] * y;
         GD.Print("int g" + x + "&" + y);
+        return g[0] * x + g[1] * y;
     }
 
     // 2D simplex noise
@@ -145,10 +152,9 @@ public partial class Simplex : Godot.Node
             GD.Print("Linje 119, n2: " + n2);
         }
 
-
+        GD.Print("Linje 126, return: " + 70.0 * (n0 + n1 + n2));
         // Add contributions from each corner to get the final noise value.
         // The result is scaled to return values in the interval [-1,1].
         return 70.0 * (n0 + n1 + n2);
-        GD.Print("Linje 126, return: " + 70.0 * (n0 + n1 + n2));
     }
 }
