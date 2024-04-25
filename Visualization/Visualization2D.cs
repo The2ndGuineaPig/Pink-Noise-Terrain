@@ -42,7 +42,7 @@ public partial class Visualization2D : Sprite2D
 		{
 			for (int j = 0; j < imageSize.Y; j++)
 			{
-				float noiseValue = (float)Simplex.noise((double)(noiseOrigin.X + i), (double)(noiseOrigin.Y + j)) / 2.0f + 1.0f;
+				float noiseValue = ((float)Simplex.noise((double)(noiseOrigin.X + i), (double)(noiseOrigin.Y + j)) + 1.0f) / 2.0f;
 				image.SetPixel(i, j, new Color(noiseValue, noiseValue, noiseValue));
 			}
 		}
