@@ -6,5 +6,3 @@
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 script = ExtResource("1_tywp2")
-imgWidth = 512
-imgHeight = 512
