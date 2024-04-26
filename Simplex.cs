@@ -33,8 +33,24 @@ public partial class Simplex : Godot.Node
                           129, 22, 39, 253, 19, 98, 108, 110, 79, 113, 224, 232, 178, 185, 112, 104, 218, 246, 97, 228,
                           251, 34, 242, 193, 238, 210, 144, 12, 191, 179, 162, 241, 81, 51, 145, 235, 249, 14, 239, 107,
                           49, 192, 214, 31, 181, 199, 106, 157, 184, 84, 204, 176, 115, 121, 50, 45, 127, 4, 150, 254,
-                          138, 236, 205, 93, 222, 114, 67, 29, 24, 72, 243, 141, 128, 195, 78, 66, 215, 61, 156, 180};
+                          138, 236, 205, 93, 222, 114, 67, 29, 24, 72, 243, 141, 128, 195, 78, 66, 215, 61, 156, 180}; 
+                          // replace list with an "private List<int> p = new List<int>();" so i can clear the list and replace it with a random seed
 
+    /*
+    private void Seed(string input)
+    {
+        int seed = input.GetHashCode();
+        Random rand = new Random(seed);
+
+        p.Clear();
+
+        for (int i = 0; i < 256; i++)
+        {
+            p.Add(rand.Next(0, 255));
+        }
+    }
+    */
+    
 
     // To remove the need for index wrapping, double the permutation table length
     private static List<int> perm = new List<int>(512);
