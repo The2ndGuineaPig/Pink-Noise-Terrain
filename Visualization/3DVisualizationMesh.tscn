@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfr3mjdvrrn4s"]
+
+[ext_resource type="Script" path="res://Visualization/Visualization3D.cs" id="1_ku263"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_t3a5r"]
+
+[node name="3dVisualization" type="MeshInstance3D"]
+mesh = SubResource("ArrayMesh_t3a5r")
+script = ExtResource("1_ku263")
