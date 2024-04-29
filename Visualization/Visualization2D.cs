@@ -12,7 +12,7 @@ public partial class Visualization2D : Sprite2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		SetImageSize(new(512, 512));
+		SetImageSize(Globals.data.imgSize);
 		RenderNoise();
 	}
 
