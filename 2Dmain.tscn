@@ -1,27 +1,35 @@
-[gd_scene load_steps=2 format=3 uid="uid://df7oxhulr0l52"]
+[gd_scene load_steps=4 format=3 uid="uid://df7oxhulr0l52"]
 
 [ext_resource type="Script" path="res://Interface/Camera2DModulate.cs" id="1_x7t1s"]
+[ext_resource type="Script" path="res://Camera2D.cs" id="2_71c7w"]
+[ext_resource type="Texture2D" uid="uid://cd2b1uggi4oub" path="res://icon.svg" id="3_fj8v2"]
 
 [node name="Node2D" type="Control" node_paths=PackedStringArray("camera2D")]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_x7t1s")
 camera2D = NodePath("Camera2D")
 
-[node name="Node2D" type="Node2D" parent="."]
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(5, 5)
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("camera2D")]
 limit_left = 0
 limit_top = 0
 limit_right = 1920
 limit_bottom = 1080
+script = ExtResource("2_71c7w")
+camera2D = NodePath(".")
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(1, 0.0784314, 1, 0.713726)
+[node name="Node2D" type="Node2D" parent="."]
 
-[node name="Label" type="Label" parent="CanvasModulate"]
-offset_right = 567.0
-offset_bottom = 260.0
-theme_override_font_sizes/font_size = 190
-text = "NOISE"
+[node name="TextureRect" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.298039)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_fj8v2")

@@ -6,3 +6,7 @@
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 script = ExtResource("1_tywp2")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = 0
