@@ -33,3 +33,5 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_fj8v2")
+
+[node name="SubViewport" type="SubViewport" parent="."]
