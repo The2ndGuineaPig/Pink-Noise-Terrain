@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://bvdq6dannupx3"]
 
-[ext_resource type="Script" path="res://Visualization/Visualization2D.cs" id="1_tywp2"]
+[ext_resource type="Script" path="res://Visualization/Visualization2D.cs" id="1_2nbqy"]
 
 [node name="Node2D" type="CanvasLayer"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-script = ExtResource("1_tywp2")
+script = ExtResource("1_2nbqy")
