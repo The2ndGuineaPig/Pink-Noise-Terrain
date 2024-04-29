@@ -27,7 +27,7 @@ public static class Simplex
         Random rand = new Random();
         for (int i = 0; i < 256; i++)
         {
-            p.Add(rand.Next(0, 255));
+            p.Add(rand.Next(0, 255) & 255);
         }
     }
 
