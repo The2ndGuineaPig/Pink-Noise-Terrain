@@ -27,7 +27,8 @@ public partial class Visualization2D : Sprite2D
 		noiseOrigin = xy;
 	}
 
-	public void SetZoom(double z) {
+	public void SetZoom(double z)
+	{
 		zoom = z; 
 	}
 
