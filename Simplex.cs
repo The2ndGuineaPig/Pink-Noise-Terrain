@@ -2,16 +2,14 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-public partial class Simplex : Godot.Node
+public static class Simplex
 {
-    public override void _Ready()
-	{   
-        
+    static Simplex()
+    {
         InitializePermArray();
-        double x = 1;
-        double y = 5;
-        double noiseValue = noise(x, y);
-	}
+    }
+
+    public static int d = 429;
 
     private static int[][] grad3= new int[][]
     {
