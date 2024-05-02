@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwqxnspin8enk"]
+
+[ext_resource type="PackedScene" uid="uid://cfr3mjdvrrn4s" path="res://Visualization/3DVisualizationMesh.tscn" id="1_imsk2"]
+
+[node name="3dScene" type="Node3D"]
+
+[node name="3dVisualization" parent="." instance=ExtResource("1_imsk2")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.88453)
