@@ -73,14 +73,14 @@ public static class Simplex
         if (x0 > y0)
         {
             i1 = 1; j1 = 0;
-            } // lower triangle, XY order: (0,0)->(1,0)->(1,1)
+        }   // lower triangle, XY order: (0,0)->(1,0)->(1,1)
         else
         {
             i1 = 0; j1 = 1;
-            } // upper triangle, YX order: (0,0)->(0,1)->(1,1)
-              // A step of (1,0) in (i,j) means a step of (1-c,-c) in (x,y), and
-              // a step of (0,1) in (i,j) means a step of (-c,1-c) in (x,y), where
-              // c = (3-sqrt(3))/6
+        }   // upper triangle, YX order: (0,0)->(0,1)->(1,1)
+            // A step of (1,0) in (i,j) means a step of (1-c,-c) in (x,y), and
+            // a step of (0,1) in (i,j) means a step of (-c,1-c) in (x,y), where
+            // c = (3-sqrt(3))/6
 
 
         double x1 = x0 - i1 + G2; // Offsets for middle corner in (x,y) unskewed coords
