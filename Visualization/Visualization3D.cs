@@ -17,7 +17,7 @@ public partial class Visualization3D : MeshInstance3D
 		surfaceArray.Resize((int)Mesh.ArrayType.Max);
 
 		List<Vector3> verts = new List<Vector3>();
-		List<Vector3> color = new List<Vector3>();
+		List<Color> color = new List<Color>();
 		List<int> indices = new List<int>();
 
 		// Bestem heightmap data
@@ -37,7 +37,7 @@ public partial class Visualization3D : MeshInstance3D
 
 				Vector3 vert = new Vector3((float)x, (float)y, (float)z);
 				verts.Add(vert);
-				color.Add(new Vector3((float)noiseValue, (float)noiseValue, (float)noiseValue));
+				color.Add(new Color((float)noiseValue, (float)noiseValue, (float)noiseValue));
 				pointIndex++;
 
 				if (i > 0 && j > 0) {
@@ -57,17 +57,17 @@ public partial class Visualization3D : MeshInstance3D
 		// Set mesh
 		surfaceArray[(int)Mesh.ArrayType.Vertex] = verts.ToArray();
         surfaceArray[(int)Mesh.ArrayType.Index] = indices.ToArray();
-        //surfaceArray[(int)Mesh.ArrayType.Color] = color.ToArray();
+        surfaceArray[(int)Mesh.ArrayType.Color] = color.ToArray();
 		
-		SurfaceTool surfaceTool = new SurfaceTool();
+		//SurfaceTool surfaceTool = new SurfaceTool();
 		ArrayMesh arrMesh = Mesh as ArrayMesh;
         if (arrMesh != null)
         {
             arrMesh.AddSurfaceFromArrays(Mesh.PrimitiveType.Triangles, surfaceArray);
-			arrMesh.RegenNormalMaps();
-			surfaceTool.CreateFrom(arrMesh, 0);
-			surfaceTool.GenerateNormals();
-			arrMesh = surfaceTool.Commit();
+			//arrMesh.RegenNormalMaps();
+			//surfaceTool.CreateFrom(arrMesh, 0);
+			//surfaceTool.GenerateNormals();
+			//arrMesh = surfaceTool.Commit();
         }
 	}
 }
