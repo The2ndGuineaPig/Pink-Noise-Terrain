@@ -10,8 +10,6 @@ public static class Simplex
         InitializePermArray();
     }
 
-    public static int d = 429;
-
     private static int[][] grad3= new int[][]
     {
         new int[] {1,1,0}, new int[] {-1,1,0}, new int[] {1,-1,0},
@@ -55,11 +53,12 @@ public static class Simplex
     public static double noise(double xin, double yin)
     {
         double n0, n1, n2; // Noise contributions from the three corners
-                           // Skew the input space to determine which simplex cell we're in
+        // Skew the input space to determine which simplex cell we're in
         double F2 = 0.5 * (Math.Sqrt(3.0) - 1.0);
         double s = (xin + yin) * F2; // Hairy factor for 2D
         int i = fastfloor(xin + s);
         int j = fastfloor(yin + s);
+        
         double G2 = (3.0 - Math.Sqrt(3.0)) / 6.0;
         double t = (i + j) * G2;
         double X0 = i - t; // Unskew the cell origin back to (x,y) space
