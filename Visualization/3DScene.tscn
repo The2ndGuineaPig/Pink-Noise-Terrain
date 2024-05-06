@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwqxnspin8enk"]
+
+[ext_resource type="PackedScene" uid="uid://cfr3mjdvrrn4s" path="res://Visualization/3DVisualizationMesh.tscn" id="1_imsk2"]
+
+[node name="3dScene" type="Node3D"]
+
+[node name="3dVisualization" parent="." instance=ExtResource("1_imsk2")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.619697, 0.183883, -0.762996, 1.94353e-08, 0.972166, 0.234294, 0.784841, 0.145191, -0.602448, -1.07153, 2.69875, -0.420412)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.586044, 0.692326, 0.420995, -0.348797, -0.253417, 0.902286, 0.731363, -0.675622, 0.0929684, 0, 1.56599, -0.0473363)
