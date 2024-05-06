@@ -11,7 +11,7 @@ public partial class Visualization3D : MeshInstance3D
 		InstantiateMesh(512, 512, 0.01, 1.0f, new Vector2(0.0f, 0.0f));
 	}
 
-	public void InstantiateMesh(uint terrainWidth, uint terrainHeight, double sizeStep, float heightmapHeight, Vector2 noiseOrigin) {
+	public void InstantiateMesh(uint terrainWidth, uint terrainDepth, double sizeStep, float heightmapHeight, Vector2 noiseOrigin) {
 		// reference: https://docs.godotengine.org/en/stable/tutorials/3d/procedural_geometry/arraymesh.html
 		Godot.Collections.Array surfaceArray = new Godot.Collections.Array();
 		surfaceArray.Resize((int)Mesh.ArrayType.Max);
@@ -27,7 +27,7 @@ public partial class Visualization3D : MeshInstance3D
 
 		for (int i = 0; i < terrainWidth; i++)
 		{
-			for (int j = 0; j < terrainHeight; j++)
+			for (int j = 0; j < terrainDepth; j++)
 			{
 				double x = (double)(noiseOrigin.X + i * sizeStep);
 				double z = (double)(noiseOrigin.Y + j * sizeStep);
@@ -69,5 +69,13 @@ public partial class Visualization3D : MeshInstance3D
 			//surfaceTool.GenerateNormals();
 			//arrMesh = surfaceTool.Commit();
         }
+
+
+		// Center mesh til origo
+		Position = new Vector3(
+			-(float)(terrainWidth * sizeStep * 0.5),
+			0.0f,
+			-(float)(terrainDepth * sizeStep * 0.5)
+		);
 	}
 }
