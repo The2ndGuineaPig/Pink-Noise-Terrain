@@ -40,6 +40,6 @@ public partial class Visualization2D : Sprite2D
 			}
 		}
 
-		Texture = ImageTexture.CreateFromImage(image);
+		Texture = ImageTexture.CreateFromImage(image); // Set sprite texture
 	}
 }
