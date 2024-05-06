@@ -13,9 +13,8 @@ public partial class Camera2DModulate : Control
 		// Initialization here
 		// With anchor point in center set top left corner to 0,0
 		
-		
 		camera2D.AnchorMode = Camera2D.AnchorModeEnum.FixedTopLeft;
-		camera2D.Zoom = new Vector2(5, 5);
+		camera2D.Zoom = new Vector2(1, 1);
 		camera2D.LimitLeft = 0;
 		camera2D.LimitTop = 0;
 	}
@@ -48,6 +47,11 @@ public partial class Camera2DModulate : Control
 			camera2D.Position += new Vector2(0, -1);
 		}
 
+		if (camera2D.Zoom.X < 0.6f || camera2D.Zoom.Y < 0.6f)
+		{
+			camera2D.Zoom = new Vector2(0.6f, 0.6f);
+			
+		}
 		// Zoom in and out with scroll wheel
 
 
@@ -58,21 +62,25 @@ public partial class Camera2DModulate : Control
 	}
 
 	public override void _Input(InputEvent @event)
-	{
-		if (@event is InputEventMouseButton mouseButton)
-		{
-			if (mouseButton.ButtonIndex == MouseButton.WheelUp)
-			{
-				GD.Print(mouseButton);
-				camera2D.Zoom = camera2D.Zoom + new Vector2(0.1f, 0.1f);
-			}
-			else if (mouseButton.ButtonIndex == MouseButton.WheelDown)
-			{
-				GD.Print(mouseButton);
-				camera2D.Zoom = camera2D.Zoom - new Vector2(0.1f, 0.1f);
-			}
-		}
-	}
+{
+    if (@event is InputEventMouseButton mouseButton)
+    {
+        if (mouseButton.ButtonIndex == MouseButton.WheelUp)
+        {
+            camera2D.Zoom = camera2D.Zoom + new Vector2(0.1f, 0.1f);
+            GD.Print(camera2D.Zoom);
+        }
+        else if (mouseButton.ButtonIndex == MouseButton.WheelDown)
+        {
+            // Check if zoom level is greater than 0.6 before zooming out
+            if (camera2D.Zoom.X > 0.6f && camera2D.Zoom.Y > 0.6f)
+            {
+                camera2D.Zoom = camera2D.Zoom - new Vector2(0.1f, 0.1f);
+                GD.Print(camera2D.Zoom);
+            }
+        }
+    }
+}
 }
 
 
