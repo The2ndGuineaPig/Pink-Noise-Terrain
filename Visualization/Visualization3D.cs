@@ -4,14 +4,21 @@ using System.Collections.Generic;
 
 public partial class Visualization3D : MeshInstance3D
 {
+	private Vector2I terrainVertexAmount;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		InstantiateMesh(512, 512, 0.01, 1.0f, new Vector2(0.0f, 0.0f));
+		SetTerrainVertexAmount(new Vector2I(512, 512));
+		InstantiateMesh(0.01, 1.0f, new Vector2(0.0f, 0.0f));
 	}
 
-	public void InstantiateMesh(uint terrainWidth, uint terrainDepth, double sizeStep, float heightmapHeight, Vector2 noiseOrigin) {
+	public void SetTerrainVertexAmount(Vector2I v)
+	{
+		terrainVertexAmount = v;
+	}
+
+	public void InstantiateMesh(double sizeStep, float heightmapHeight, Vector2 noiseOrigin) {
 		// reference: https://docs.godotengine.org/en/stable/tutorials/3d/procedural_geometry/arraymesh.html
 		Godot.Collections.Array surfaceArray = new Godot.Collections.Array();
 		surfaceArray.Resize((int)Mesh.ArrayType.Max);
@@ -25,9 +32,9 @@ public partial class Visualization3D : MeshInstance3D
         int prevRow = 0;
 		int pointIndex = 0;
 
-		for (int i = 0; i < terrainWidth; i++)
+		for (int i = 0; i < terrainVertexAmount.X; i++)
 		{
-			for (int j = 0; j < terrainDepth; j++)
+			for (int j = 0; j < terrainVertexAmount.Y; j++)
 			{
 				double x = (double)(noiseOrigin.X + i * sizeStep);
 				double z = (double)(noiseOrigin.Y + j * sizeStep);
@@ -35,11 +42,13 @@ public partial class Visualization3D : MeshInstance3D
 				double noiseValue = (Simplex.noise(x, z) + 1.0f) / 2.0f;
 				double y = noiseValue * heightmapHeight;
 
+				// Addere vertex data
 				Vector3 vert = new Vector3((float)x, (float)y, (float)z);
 				verts.Add(vert);
 				color.Add(new Color((float)noiseValue, (float)noiseValue, (float)noiseValue));
 				pointIndex++;
 
+				// Addere quad-mesh data, i.e. 2 trekanter
 				if (i > 0 && j > 0) {
 					indices.Add(prevRow + j - 1);
                     indices.Add(thisRow + j - 1);
@@ -73,9 +82,9 @@ public partial class Visualization3D : MeshInstance3D
 
 		// Center mesh til origo
 		Position = new Vector3(
-			-(float)(terrainWidth * sizeStep * 0.5),
+			-(float)(terrainVertexAmount.X * sizeStep * 0.5),
 			0.0f,
-			-(float)(terrainDepth * sizeStep * 0.5)
+			-(float)(terrainVertexAmount.Y * sizeStep * 0.5)
 		);
 	}
 }
