@@ -7,7 +7,8 @@
 [node name="3dVisualization" parent="." instance=ExtResource("1_imsk2")]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.766044, 0.642788, 0, -0.642788, 0.766044, 0, 2.4, 3)
+transform = Transform3D(0.757372, -0.332837, 0.56179, -0.0107584, 0.853865, 0.520383, -0.652895, -0.400167, 0.643113, 5.03612, 5.08802, 6.32143)
+fov = 31.2
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.586044, 0.692326, 0.420995, -0.348797, -0.253417, 0.902286, 0.731363, -0.675622, 0.0929684, 0, 1.56599, -0.0473363)

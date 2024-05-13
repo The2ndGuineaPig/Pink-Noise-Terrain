@@ -20,7 +20,7 @@ public static class Simplex
 
     private static List<int> p = new List<int>();
 
-    static void GenerateRandomSeed()
+    public static void GenerateRandomSeed()
     {
         Random rand = new Random();
         for (int i = 0; i < 256; i++)

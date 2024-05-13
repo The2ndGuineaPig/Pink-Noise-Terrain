@@ -9,8 +9,8 @@ public partial class Visualization3D : MeshInstance3D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		SetTerrainVertexAmount(new Vector2I(512, 512));
-		InstantiateMesh(0.01, 1.0f, new Vector2(0.0f, 0.0f));
+		SetTerrainVertexAmount(new Vector2I(1024,1025));
+		InstantiateMesh(0.01, 2.0f, new Vector2(0.0f, 0.0f));
 	}
 
 	public void SetTerrainVertexAmount(Vector2I v)
